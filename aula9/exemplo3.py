@@ -42,10 +42,10 @@ def buscar_vendedor(nome):
 
     for cadastro in list_cadastro:
         if cadastro['Nome'] == nome:
-            resposta = cadastro['Nome']
-            vl = cadastro['Valor']
-
-            return resposta, vl
+            # resposta = cadastro['Nome']
+            # vl = cadastro['Valor']
+            return cadastro
+            # return resposta, vl
     return resposta, vl
 
 
@@ -69,12 +69,13 @@ print(30*'=')
 print(f'Maior venda {total:.2f}')
 print(f'Maior vendedor {maior_vendedor}')
 
-# EXEMPLO 04 - BUSCAR VENDEDOR 
+# EXEMPLO 04 - BUSCAR VENDEDOR
 vendedor = input('\nDigite o nome do vendedor: ')
-nome_vendedor, valor = buscar_vendedor(vendedor)
+cadastro =  buscar_vendedor(vendedor)
+# nome_vendedor, valor = buscar_vendedor(vendedor)
 
-if nome_vendedor:
-    print(f'\nO vendedor {nome_vendedor} está listado')
-    print(f'\nO valor {valor}')
+if cadastro:
+    print(f"\nO vendedor {cadastro['Nome']} está listado")
+    print(f"\nO valor {cadastro['Valor']}")
 else:
-    print(f'\n{nome_vendedor} Vendedor não encontrado')
+    print(f'\n{cadastro} Vendedor não encontrado')
